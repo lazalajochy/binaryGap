@@ -10,7 +10,7 @@
     
 </body>
 <script>
-    let decimalNumber =  82;
+    let decimalNumber =  10001;
     let arr = [];
 
     do {
@@ -19,7 +19,6 @@
         }else{
             arr.push(1);
         }
-
         decimalNumber = Math.floor(decimalNumber / 2);
 
     }while(decimalNumber > 0);
@@ -27,7 +26,7 @@
     let newArray = arr.reverse();
     let binaryNumber = +newArray.join("");
     console.log(binaryNumber);
-    let binarySpace = [], sum = 0;
+    let binarySpace = [], result = 0;
 
     for(var i = 0; i <= newArray.length - 1; i++){
         if(newArray[i] == 0 && newArray[i + 19] == 1 || newArray[i + 18] == 1 || newArray[i + 17] == 1 || newArray[i + 16] == 1 || newArray[i + 15] == 1 || newArray[i + 14] == 1 || newArray[i + 13] == 1 || newArray[i + 12] == 1 || newArray[i + 11] == 1 || newArray[i + 10] == 1 || newArray[i + 9] == 1 || newArray[i + 8] == 1 || newArray[i + 7] == 1 || newArray[i + 6] == 1  || newArray[i + 5] == 1 || newArray[i + 4] == 1 || newArray[i + 3] == 1  || newArray[i + 2] == 1 || newArray[i+1] == 1 ){
@@ -36,23 +35,22 @@
     }
 
    function getBinarySpace(binarySpace){
-    let result = [],  re = [], aux = 0;  
-      
+    let  re = [], aux = 0;  
        for(var i = 0; i <= binarySpace.length - 1; i++){
            if(binarySpace[i] !== 1){
                aux += 1;
                re.push(aux)
-               sum = Math.max(...re)
+               result = Math.max(...re)
+               console.log(aux)
            }else {
               aux = 0;
            }
        }
-       result.push(sum)
-       return result;
+       return result; 
    }
 
    binarySpaceResult = getBinarySpace(binarySpace)
-   let longitud = +binarySpaceResult.join("")
+   let longitud = binarySpaceResult;
 
    if(longitud >= 1){
        console.log("la mayor longitud del espacio binario es: ", longitud)
