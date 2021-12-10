@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let decimalNumber =  80; //10001;
+    let arr = [];
+
+    do {
+        if(decimalNumber % 2 == 0){
+            arr.push(0);
+        }else{
+            arr.push(1);
+        }
+
+        decimalNumber = Math.floor(decimalNumber / 2);
+
+    }while(decimalNumber > 0);
+
+    let newArray = arr.reverse();
+    let binaryNumber = +newArray.join("");
+    console.log(binaryNumber);
+    let binarySpace = [], sum = 0;
+
+
+    for(var i = 0; i <= newArray.length - 1; i++){
+        if(newArray[i] == 0 && newArray[i + 19] == 1 || newArray[i + 18] == 1 || newArray[i + 17] == 1 || newArray[i + 16] == 1 || newArray[i + 15] == 1 || newArray[i + 14] == 1 || newArray[i + 13] == 1 || newArray[i + 12] == 1 || newArray[i + 11] == 1 || newArray[i + 10] == 1 || newArray[i + 9] == 1 || newArray[i + 8] == 1 || newArray[i + 7] == 1 || newArray[i + 6] == 1  || newArray[i + 5] == 1 || newArray[i + 4] == 1 || newArray[i + 3] == 1  || newArray[i + 2] == 1 || newArray[i+1] == 1 ){
+            binarySpace.push(newArray[i]);
+        }
+    }
+
+   function deleteElement(binarySpace){
+    let result = [],  re = [], aux = 0;  
+      
+       for(var i = 0; i <= binarySpace.length - 1; i++){
+           if(binarySpace[i] !== 1){
+               aux += 1;
+               re.push(aux)
+               sum = Math.max(...re)
+           }else {
+              aux = 0;
+           }
+       }
+       result.push(sum)
+       return result;
+   }
+
+   binarySpaceResult = deleteElement(binarySpace)
+   let longitud = +binarySpaceResult.join("")
+
+   if(longitud >= 1){
+       console.log("la mayor longitud del espacio binario es: ", longitud)
+   }else{
+       console.log("No hay longitud en el espacio binario")
+   }
+</script>
+</html>
